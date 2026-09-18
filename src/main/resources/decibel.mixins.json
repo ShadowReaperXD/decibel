@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "com.shasin.decibel.client.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+	],
+	"mixins": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

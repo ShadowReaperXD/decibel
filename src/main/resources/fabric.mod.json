@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "decibel",
+	"version": "${version}",
+	"name": "Decibel",
+	"description": "Precise control over individual sounds!",
+	"authors": [
+		"ShadowReaperXD",
+		"Assasin69"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "ARR",
+	"icon": "assets/decibel/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.shasin.decibel.Decibel"
+		],
+		"client": [
+			"com.shasin.decibel.client.DecibelClient"
+		],
+		"modmenu": [
+			"com.shasin.decibel.client.integration.DecibelModMenu"
+		]
+	},
+	"mixins": [
+		"decibel.mixins.json",
+		{
+			"config": "decibel.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
