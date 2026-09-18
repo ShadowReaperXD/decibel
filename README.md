@@ -10,7 +10,7 @@ Decibel is a lightweight audio utility for Minecraft that gives you granular, pr
 
 ## Compatibility & Supported Versions:
 
-**The mod is out of the box compatible with most of the Mods with optional custom compatibility available for mod developers. See more on the Developers.md**
+**The mod is out of the box compatible with most of the Mods with optional custom compatibility available for mod developers. See more on the Developers.md <Developers.md> **
 
 > Loader Requirement: **Fabric** Exclusive. There are no plans to support Forge, NeoForge, or Quilt.
 > 
