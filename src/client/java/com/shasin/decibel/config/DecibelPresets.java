@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -62,7 +62,7 @@ public class DecibelPresets {
         DecibelConfig.get().resetAll();
 
         targetPreset.forEach((soundId, volume) -> {
-            ResourceLocation loc = ResourceLocation.tryParse(soundId);
+            Identifier loc = Identifier.tryParse(soundId);
             if (loc != null) {
                 DecibelConfig.get().setVolume(loc, volume);
             }

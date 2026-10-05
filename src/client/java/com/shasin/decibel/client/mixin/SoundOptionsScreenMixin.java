@@ -8,7 +8,7 @@ import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.client.gui.screens.options.SoundOptionsScreen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class SoundOptionsScreenMixin extends Screen {
 
 	@Unique
-	private static final ResourceLocation DECIBEL_ICON = ResourceLocation.fromNamespaceAndPath("decibel", "textures/gui/icon.png");
+	private static final Identifier DECIBEL_ICON = Identifier.fromNamespaceAndPath("decibel", "textures/gui/icon.png");
 
 	@Unique
 	private Button decibelButton;

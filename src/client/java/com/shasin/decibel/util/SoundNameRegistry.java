@@ -8,7 +8,7 @@ import com.shasin.decibel.api.DecibelApi;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -90,11 +90,11 @@ public class SoundNameRegistry {
         }
     }
 
-    public static String getUserName(ResourceLocation soundId) {
+    public static String getUserName(Identifier soundId) {
         return userCustomNames.get(soundId.toString());
     }
 
-    public static String getModAssetName(ResourceLocation soundId) {
+    public static String getModAssetName(Identifier soundId) {
         return modAssetNames.get(soundId.toString());
     }
 }

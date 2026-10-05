@@ -2,7 +2,7 @@ package com.shasin.decibel.client.gui;
 
 import com.shasin.decibel.config.DecibelConfig;
 import com.shasin.decibel.client.gui.SoundListWidget.CategoryFilter;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
@@ -62,7 +62,7 @@ public class DecibelSoundScreen extends Screen {
         this.addRenderableWidget(this.searchBox);
 
         int listTop = 45;
-        int listHeight = this.height - listTop - 36;
+        int listHeight = this.height - listTop - 36; // Restored '-' math
         this.soundList = new SoundListWidget(this.minecraft, this.width, listHeight, listTop, 24);
         this.addRenderableWidget(this.soundList);
 
@@ -72,7 +72,7 @@ public class DecibelSoundScreen extends Screen {
                                 this.minecraft.setScreen(this.parent);
                             }
                         })
-                        .bounds(this.width / 2 - 100, this.height - 28, 200, 20)
+                        .bounds(this.width / 2 - 100, this.height - 28, 200, 20) // Restored '-' math
                         .build()
         );
     }
@@ -85,8 +85,8 @@ public class DecibelSoundScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        super.render(guiGraphics, mouseX, mouseY, partialTick);
-        guiGraphics.drawCenteredString(this.font, this.title, this.width / 2, 8, 0xFFFFFF);
+    public void extractRenderState(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.extractRenderState(guiGraphics, mouseX, mouseY, partialTick);
+        guiGraphics.centeredText(this.font, this.title, this.width / 2, 8, 0xFFFFFFFF);
     }
 }

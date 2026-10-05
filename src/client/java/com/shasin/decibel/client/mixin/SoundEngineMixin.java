@@ -3,7 +3,7 @@ package com.shasin.decibel.client.mixin;
 import com.shasin.decibel.config.DecibelConfig;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEngine;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,8 +18,8 @@ public class SoundEngineMixin {
             cancellable = true
     )
     private void decibel$applyCustomVolume(SoundInstance sound, CallbackInfoReturnable<Float> cir) {
-        if (sound != null && sound.getLocation() != null) {
-            ResourceLocation soundId = sound.getLocation();
+        if (sound != null && sound.getIdentifier() != null) {
+            Identifier soundId = sound.getIdentifier();
             float customMultiplier = DecibelConfig.get().getVolume(soundId);
 
             // Multiply Minecraft's calculated volume by Decibel's custom multiplier

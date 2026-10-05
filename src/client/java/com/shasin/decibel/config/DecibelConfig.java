@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -58,7 +58,7 @@ public class DecibelConfig {
     }
 
     private void syncWithRegistry() {
-        for (ResourceLocation soundId : BuiltInRegistries.SOUND_EVENT.keySet()) {
+        for (Identifier soundId : BuiltInRegistries.SOUND_EVENT.keySet()) {
             String key = soundId.toString();
             if (!this.sounds.containsKey(key)) {
                 SoundEntryData data = new SoundEntryData();
@@ -74,7 +74,7 @@ public class DecibelConfig {
      * Used by AbstractSoundInstanceMixin to intercept audio.
      * Returns 0.0f if muted, otherwise returns the saved slider volume.
      */
-    public float getVolume(ResourceLocation soundId) {
+    public float getVolume(Identifier soundId) {
         SoundEntryData data = this.sounds.get(soundId.toString());
         if (data != null) {
             return data.isMuted ? 0.0f : data.volume;
@@ -85,35 +85,35 @@ public class DecibelConfig {
     /**
      * Used by the UI slider to display actual volume percentage even when muted.
      */
-    public float getRawVolume(ResourceLocation soundId) {
+    public float getRawVolume(Identifier soundId) {
         SoundEntryData data = this.sounds.get(soundId.toString());
         return data != null ? data.volume : 1.0f;
     }
 
-    public void setVolume(ResourceLocation soundId, float volume) {
+    public void setVolume(Identifier soundId, float volume) {
         SoundEntryData data = this.sounds.computeIfAbsent(soundId.toString(), k -> new SoundEntryData());
         data.volume = volume;
         data.isMod = !soundId.getNamespace().equals("minecraft");
         save();
     }
 
-    public boolean isMuted(ResourceLocation soundId) {
+    public boolean isMuted(Identifier soundId) {
         SoundEntryData data = this.sounds.get(soundId.toString());
         return data != null && data.isMuted;
     }
 
-    public void setMuted(ResourceLocation soundId, boolean muted) {
+    public void setMuted(Identifier soundId, boolean muted) {
         SoundEntryData data = this.sounds.computeIfAbsent(soundId.toString(), k -> new SoundEntryData());
         data.isMuted = muted;
         data.isMod = !soundId.getNamespace().equals("minecraft");
         save();
     }
 
-    public void toggleMute(ResourceLocation soundId) {
+    public void toggleMute(Identifier soundId) {
         setMuted(soundId, !isMuted(soundId));
     }
 
-    public void resetVolume(ResourceLocation soundId) {
+    public void resetVolume(Identifier soundId) {
         SoundEntryData data = this.sounds.computeIfAbsent(soundId.toString(), k -> new SoundEntryData());
         data.volume = 1.0f;
         data.isMuted = false;

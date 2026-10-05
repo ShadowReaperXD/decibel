@@ -2,11 +2,11 @@ package com.shasin.decibel.util;
 
 import com.shasin.decibel.api.DecibelApi;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class SoundNameUtil {
 
-    public static String getReadableName(ResourceLocation soundId) {
+    public static String getReadableName(Identifier soundId) {
         // 1. User manual override file (config/decibel_names.json)
         String userName = SoundNameRegistry.getUserName(soundId);
         if (userName != null && !userName.isBlank()) {

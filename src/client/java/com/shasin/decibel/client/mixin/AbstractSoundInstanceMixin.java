@@ -2,7 +2,7 @@ package com.shasin.decibel.client.mixin;
 
 import com.shasin.decibel.config.DecibelConfig;
 import net.minecraft.client.resources.sounds.AbstractSoundInstance;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,7 +14,7 @@ public abstract class AbstractSoundInstanceMixin {
     @Inject(method = "getVolume", at = @At("RETURN"), cancellable = true)
     private void decibel$scaleVolume(CallbackInfoReturnable<Float> cir) {
         AbstractSoundInstance sound = (AbstractSoundInstance) (Object) this;
-        ResourceLocation location = sound.getLocation();
+        Identifier location = sound.getIdentifier();
 
         if (location != null) {
             float customMultiplier = DecibelConfig.get().getVolume(location);
