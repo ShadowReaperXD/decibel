@@ -1,3 +1,6 @@
+<center> <img src="https://github.com/user-attachments/assets/634a2403-e232-4e5a-bf9a-b58b6ef1882d" > </center>
+
+
 # Decibel
 ## Planning support for 26.3
 Decibel is a lightweight audio utility for Minecraft that gives you granular, precise control over your in-game soundscape. Instead of relying on broad, all-or-nothing vanilla sound categories like "Blocks," "Players," or "Hostile Creatures," Decibel adds an intuitive tweak menu that allows you to adjust the volume of individual game sounds independently.
