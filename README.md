@@ -1,5 +1,5 @@
 # Decibel
-
+## Planning support for 26.3
 Decibel is a lightweight audio utility for Minecraft that gives you granular, precise control over your in-game soundscape. Instead of relying on broad, all-or-nothing vanilla sound categories like "Blocks," "Players," or "Hostile Creatures," Decibel adds an intuitive tweak menu that allows you to adjust the volume of individual game sounds independently.
 ## Features:
 * **Per-Sound Volume Control:** Adjust or mute specific individual sound events (like nether portal hums, phantom screeches, or anvil drops) without affecting the rest of the category. Quick individual icon buttons let you instantly reset a single sound back to default.
@@ -16,9 +16,9 @@ Decibel is a lightweight audio utility for Minecraft that gives you granular, pr
 >
 | Minecraft Version | Mod Loader | Release Status |
 |---|---|---|
-| 1.21.1 | Fabric | Supported (Current) |
-| 26.1 | Fabric | Planned |
-| 26.2 | Fabric | Planned |
+| 1.21.1 | Fabric | Supported |
+| 26.1 | Fabric | Supported |
+| 26.2 | Fabric | Supported (Current) |
 > Older versions, unlisted updates, and alternative mod loaders will not be supported or backported.
 >
 # License & Rights
