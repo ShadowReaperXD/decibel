@@ -34,7 +34,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-	// Mod Menu for Fabric 26.1
+	// Mod Menu for Fabric 26.2
 	implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
@@ -64,6 +64,17 @@ java {
 jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	from("LICENSE") {
+		rename { "${it}_$projectName"}
+	}
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
 	from("LICENSE") {
 		rename { "${it}_$projectName"}

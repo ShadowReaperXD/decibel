@@ -43,7 +43,7 @@ public class DecibelSoundScreen extends Screen {
 
         this.addRenderableWidget(Button.builder(Component.literal("Presets"), b -> {
                     if (this.minecraft != null) {
-                        this.minecraft.setScreen(new DecibelPresetsScreen(this));
+                        this.minecraft.setScreenAndShow(new DecibelPresetsScreen(this));
                     }
                 })
                 .bounds(startX + 130, tabY, 52, 18)
@@ -69,7 +69,7 @@ public class DecibelSoundScreen extends Screen {
         this.addRenderableWidget(
                 Button.builder(Component.literal("Done"), button -> {
                             if (this.minecraft != null) {
-                                this.minecraft.setScreen(this.parent);
+                                this.minecraft.setScreenAndShow(this.parent);
                             }
                         })
                         .bounds(this.width / 2 - 100, this.height - 28, 200, 20) // Restored '-' math

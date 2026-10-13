@@ -57,7 +57,7 @@ public class DecibelPresetsScreen extends Screen {
         this.addRenderableWidget(Button.builder(Component.literal("Back"), b -> {
                     if (this.minecraft != null) {
                         this.parent.refreshSliders();
-                        this.minecraft.setScreen(this.parent);
+                        this.minecraft.setScreenAndShow(this.parent);
                     }
                 })
                 .bounds(this.width / 2 - 100, this.height - 28, 200, 20)

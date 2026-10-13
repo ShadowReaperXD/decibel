@@ -42,7 +42,7 @@ public abstract class SoundOptionsScreenMixin extends Screen {
 					Component.literal("  Decibel Tweaks..."),
 					button -> {
 						if (this.minecraft != null) {
-							this.minecraft.setScreen(new DecibelSoundScreen(this));
+							this.minecraft.setScreenAndShow(new DecibelSoundScreen(this));
 						}
 					},
 					DECIBEL_ICON,

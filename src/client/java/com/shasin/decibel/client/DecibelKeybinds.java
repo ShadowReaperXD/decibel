@@ -6,29 +6,28 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 
 public class DecibelKeybinds {
 
     public static KeyMapping openMenuKey;
 
     public static void register() {
+        // Register the category using the modern KeyMapping.Category API
         KeyMapping.Category category = KeyMapping.Category.register(
                 Identifier.fromNamespaceAndPath("decibel", "main")
         );
 
         openMenuKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.decibel.open_menu",
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_O, // Default hotkey: 'O'
+                InputConstants.Type.KEYBOARD, // Updated from KEYSYM for SDL3 transition
+                InputConstants.KEY_O,         // Replaced GLFW constant with InputConstants key
                 category
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openMenuKey.consumeClick()) {
-                // Pass current screen as parent so clicking "Done" returns to pause menu/game properly
-                if (client.screen == null || !(client.screen instanceof DecibelSoundScreen)) {
-                    client.setScreen(new DecibelSoundScreen(client.screen));
+                if (client.gui.screen() == null || !(client.gui.screen() instanceof DecibelSoundScreen)) {
+                    client.setScreenAndShow(new DecibelSoundScreen(client.gui.screen()));
                 }
             }
         });

@@ -2,6 +2,7 @@ package com.shasin.decibel.util;
 
 import com.shasin.decibel.api.DecibelApi;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.locale.Language;
 import net.minecraft.resources.Identifier;
 
 public class SoundNameUtil {
@@ -24,9 +25,9 @@ public class SoundNameUtil {
             return DecibelApi.getRegisteredName(soundId);
         }
 
-        // 4. Vanilla subtitle translation key
+        // 4. Vanilla subtitle translation key (Updated for 26.2)
         String subtitleKey = "subtitles." + soundId.getPath();
-        if (I18n.exists(subtitleKey)) {
+        if (Language.getInstance().has(subtitleKey)) {
             return I18n.get(subtitleKey);
         }
 
