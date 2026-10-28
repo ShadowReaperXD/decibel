@@ -20,6 +20,7 @@ Decibel is a lightweight audio utility for Minecraft that gives you granular, pr
 | 26.1(.2) | Fabric | Supported |
 | 26.2 | Fabric | Supported |
 | 26.3 | Fabric | Supported (Current) |
+| 26.4 | Fabric | Not Released Yet -Mojang |
 > Older versions, unlisted updates, and alternative mod loaders will not be supported or backported.
 >
 # ⚠️License & Rights
